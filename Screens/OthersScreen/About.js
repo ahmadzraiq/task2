@@ -1,6 +1,7 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet,I18nManager} from 'react-native';
 import {useTranslation} from 'react-i18next';
+
 export default function About() {
   const {t} = useTranslation();
   return (
@@ -18,5 +19,6 @@ const styles = StyleSheet.create({
   },
   Text: {
     fontWeight: 'bold',
+    textAlign:I18nManager.isRTL ? 'right' : 'left'
   },
 });
