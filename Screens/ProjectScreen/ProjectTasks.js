@@ -36,7 +36,7 @@ export default function ProjectTasks({route, navigation}) {
       <ScrollView style={styles.listView}>
         {tasks &&
           tasks.map((task, index) => (
-            <TouchableOpacity
+            <View
               key={index}
               style={styles.listView}
               onPress={() => navigation.push('detailsTask', {task})}
@@ -48,9 +48,9 @@ export default function ProjectTasks({route, navigation}) {
                 setModalVisible(true);
               }}>
               <View style={styles.containerTask}>
-                <View style={{width: '75%'}}>
+                <TouchableOpacity style={{flex: 1}}>
                   <Text style={styles.projectName}>{task.title}</Text>
-                </View>
+                </TouchableOpacity>
                 <CheckBox
                   disabled={false}
                   value={task.checked}
@@ -66,7 +66,7 @@ export default function ProjectTasks({route, navigation}) {
                   }
                 />
               </View>
-            </TouchableOpacity>
+            </View>
           ))}
       </ScrollView>
       <Modal
